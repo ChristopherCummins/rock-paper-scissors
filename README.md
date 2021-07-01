@@ -1,0 +1,1 @@
+This is a classic "Rock, Paper, Scissors" game as outlined by The Odin Project.
