@@ -1,0 +1,13 @@
+html {
+    background-color:rgb(218, 245, 69)
+  }
+
+.heading {
+    color:rgb(117, 64, 167);
+    font-family:monospace;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    text-align: center;
+    border: dotted rgb(117, 64, 167);
+}

@@ -12,11 +12,9 @@ function computerPlay() {
     return computerChoice;
 }
 
-function userPlay() {
-    let playerChoice = prompt("Choose rock, paper, or scissors. Type your choice here:");
-    return playerChoice.toLowerCase();
+function setplayerSelection(selection) {
+    playerSelection = selection;
 }
-
 
 function playRound(playerSelection, computerSelection) {
     let result = "";
@@ -56,27 +54,28 @@ function playRound(playerSelection, computerSelection) {
     }
 }
 
-function game() {
+
+let computerSelection = computerPlay();
+
+function buttonGame() {
     let playerScore = 0;
     let computerScore = 0;
 
-    for (let i = 0; i < 5; i++) {
-        const playerSelection = userPlay();
-        let winner = playRound(playerSelection, computerSelection) 
-        if (winner == "player") {
-            playerScore++;
-        } else {
-        computerScore++;
-        }   
-    }
+    let winner = playRound(playerSelection, computerSelection) 
+    if (winner == "player") {
+        playerScore++;
+    } else {
+    computerScore++;
+    }   
+    
     console.log("Player Score: " + playerScore);
     console.log("Computer Score " + computerScore);
-    
+
+    computerSelection = computerPlay ()
 }
 
-const computerSelection = computerPlay();
 
-
-game();
-
-
+const buttons = document.querySelectorAll('button');
+buttons.forEach((button) => {
+    button.addEventListener('click', buttonGame);
+});
