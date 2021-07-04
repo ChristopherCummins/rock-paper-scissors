@@ -6,16 +6,17 @@ function main() {
 });
 }
 
-
 function playGame(e) {
     let playerSelection = e.toElement.className.split(' ')[0];
     let computerSelection = computerPlay();
     let winner = playRound(playerSelection, computerSelection);
-    setTimeout(playMore, 200, computerSelection, winner);
+    updateScore(winner);
+    playMore();
 }
 
-function playMore (winner) {
+function playMore() {
     updateScore(winner);
+    checkScore();
     if (checkScore() == 'Done') {
         resetGame();
         return;
@@ -65,20 +66,20 @@ function playRound(playerSelection, computerSelection) {
         scoreSummary(result);
         return "draw"
     }
-};
+}
 
 function resetGame() {
-    document.querySelector('#playerScoreDisplay').textContent = "0";
-    document.querySelector('#computerScoreDisplay').textContent = "0";
-    document.querySelector('#displayMessage').textContent = " ";
-    document.querySelector('#scoreSummary').textContent = " ";
+    document.getElementById('playerScoreDisplay').textContent = "0";
+    document.getElementById('computerScoreDisplay').textContent = "0";
+    document.getElementById('displayMessage').textContent = " ";
+    document.getElementById('scoreSummary').textContent = " ";
     main();
 }
 
 function checkScore() {
-    let playerScore = +document.querySelector('#playerScoreDisplay').textContent;
-    let computerScore = +document.querySelector('#computerScoreDisplay').textContent;
-    const displayMessage = document.querySelector('#displayMessage');
+    let playerScore = document.getElementById('playerScoreDisplay').textContent;
+    let computerScore = document.getElementById('computerScoreDisplay').textContent;
+    const displayMessage = document.getElementById('displayMessage');
     if (playerScore == 5 && computerScore == 5) {
         displayMessage.textContent = "It's a tie!";
         return "Done";
@@ -103,7 +104,7 @@ function updateScore(winner) {
         computerScore.textContent = ++tempComputerScore;
         return;
     }
-    else if (winner = "player") {
+    else if (winner == "player") {
         const playerScore = document.getElementById('playerScoreDisplay');
         let tempPlayerScore = +playerScore.textContent;
         playerScore.textContent = ++tempPlayerScore;
