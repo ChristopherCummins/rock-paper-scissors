@@ -10,13 +10,11 @@ function playGame(e) {
     let playerSelection = e.toElement.className.split(' ')[0];
     let computerSelection = computerPlay();
     let winner = playRound(playerSelection, computerSelection);
-    updateScore(winner);
-    playMore();
+    setTimeout(playMore, 200, winner);
 }
 
-function playMore() {
+function playMore(winner) {
     updateScore(winner);
-    checkScore();
     if (checkScore() == 'Done') {
         resetGame();
         return;
@@ -77,8 +75,8 @@ function resetGame() {
 }
 
 function checkScore() {
-    let playerScore = document.getElementById('playerScoreDisplay').textContent;
-    let computerScore = document.getElementById('computerScoreDisplay').textContent;
+    let playerScore = +document.getElementById('playerScoreDisplay').textContent;
+    let computerScore = +document.getElementById('computerScoreDisplay').textContent;
     const displayMessage = document.getElementById('displayMessage');
     if (playerScore == 5 && computerScore == 5) {
         displayMessage.textContent = "It's a tie!";
