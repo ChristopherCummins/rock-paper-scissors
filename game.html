@@ -2,29 +2,42 @@
 <html>
 <head>
     <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href = "reset.css">
     <title>Rock, Paper, Scissors</title>
     <meta charset="UTF-8"/>
 </head>
 <body>
-    <div class = "heading"><h1>Rock, Paper, Scissors</h1></div>
-    <div id = "buttons">
-        <button class = 'rock button'>Rock</button>
-        <button class = 'paper button'>Paper</button>
-        <button class = 'scissors button'>Scissors</button>
-    </div>
-    <div id = "scoreContainer"> 
-        <div id = "scoreBoardTitle"><h2> Score Board</h2></div>
-            <div id="score">
-                <h3>PlayerScore:</h3>
-                <p id="playerScoreDisplay">0</p>
-                <h3>ComputerScore:</h3>
-                <p id="computerScoreDisplay">0</p>
+    <div id="mainContainer">
+        <h1 id="mainHeader">
+            <span id="firstLineHeader">CHOOSE WISELY</span>
+            <br>
+            ROCK-PAPER-SCISSORS
+        </h1>
+        <h2 id="subHeading">The First Player With Five Points Wins</h2>
+        <div id="buttons">
+            <button class="rock button"></button>
+            <button class="paper button"></button>
+            <button class="scissors button"></button>
+        </div>
+        <div id="bottomDisplay">
+            <div id="userPlay">
+                <img class="userPlayIcon" src="imgs/rock.png">
             </div>
-        <div id = "displayMessage"></div>
-        <div id = "scoreSummary"></div>
-    </div>
-<script src=script.js>
-</script>
-
+            <div id="scoreDisplay">
+                <div id="score">
+                    <p id="playerScoreDisplay">0</p>
+                    VS
+                    <p id="computerScoreDisplay">0</p>
+                </div>
+                <div id="displayMessage"></div>
+                <div id="scoreSummary"></div>
+                <button id="restart" onclick="window.location.href='http://127.0.0.1:5500/game.html';"></button>
+            </div id="computerPlay">
+                <img id="computerPlayIcon" src="imgs/scissorsReverse.png">
+            </div>
+        </div>
+    </div>  
+    <script src=script.js>
+    </script>
 </body>
 </html>
